@@ -1,0 +1,33 @@
+{
+    "name": "af-voucher-field/af-voucher-field",
+    "description": "af-voucher-field/af-voucher-field",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+     "authors": [
+        {
+            "name": "Alexander Fröhling",
+            "email": "alexander.froehling@googlemail.com"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.6.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "AfVoucherField\\AfVoucherField",
+        "label": {
+            "de-DE": "Gutschein im Checkout",
+            "en-GB": "Voucher in checkout"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "AfVoucherField\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AfVoucherField\\Tests\\": "tests/"
+        }
+    }
+}

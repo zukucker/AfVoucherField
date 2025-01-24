@@ -1,0 +1,43 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/index.html.twig' %}
+
+{% block page_checkout_aside_actions %}
+    {% block page_checkout_cart_add_promotion %}
+        <div class="mt-3">
+            <form action="{{ path('frontend.checkout.promotion.add') }}"
+                  class="cart-add-promotion"
+                  method="post">
+                {% block page_checkout_cart_add_promotion_forward %}
+                    <input type="hidden"
+                           name="redirectTo"
+                           value="frontend.checkout.confirm.page">
+                {% endblock %}
+
+                {% block page_checkout_cart_add_promotion_input_group %}
+                    <div class="input-group checkout-aside-add-code">
+                        {% block page_checkout_cart_add_promotion_input %}
+                            <input type="text"
+                                   name="code"
+                                   class="form-control"
+                                   id="addPromotionInput"
+                                   placeholder="{{ 'checkout.addPromotionLabel'|trans|striptags }}"
+                                   aria-label="{{ 'checkout.addPromotionLabel'|trans|striptags }}"
+                                   aria-describedby="addPromotion"
+                                   required="required"
+                                   aria-invalid="false">
+                        {% endblock %}
+
+                        {% block page_checkout_cart_add_promotion_submit %}
+                            <button class="btn btn-outline-secondary checkout-aside-add-promotion-button"
+                                    type="submit"
+                                    aria-labelledby="addPromotionInput"
+                                    id="addPromotion">
+                                {% sw_icon 'checkmark' %}
+                            </button>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+            </form>
+        </div>
+        {% endblock %}
+    {{ parent() }}
+{% endblock %}
